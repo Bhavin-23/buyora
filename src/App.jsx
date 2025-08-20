@@ -25,7 +25,7 @@ function App() {
       async (postion) => {
         const { latitude, longitude } = postion.coords;
         try {
-          const response = await axios.get( ` https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`);
+          const response = await axios.get( `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`);
           console.log(response.data);
           const data = response.data;
 
