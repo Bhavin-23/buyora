@@ -67,7 +67,7 @@ function App() {
             path="/cart"
             element={
               <ProductRouter>
-                <Cart loaction={location} getLocation={getLocation} />
+               <Cart location={location} getLocation={getLocation} />
               </ProductRouter>
             }
           ></Route>
