@@ -12,8 +12,8 @@ import Products2 from './page/Products2'
 import axios from 'axios'
 import Cart from './page/Cart'
 import ProductRouter from "./component/ProductRouter";
-import CategoryProduct from './page/CategoryProduct '
-import SingleProduct from './page/SingleProduct '
+import CategoryProduct from './page/CategoryProduct'
+import SingleProduct from './page/SingleProduct'
    
 function App() {
   const [location, setLocation] = useState(null);
