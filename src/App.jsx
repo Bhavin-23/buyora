@@ -11,7 +11,7 @@ import Products from './page/Products'
 import Products2 from './page/Products2'
 import axios from 'axios'
 import Cart from './page/Cart'
-import ProductRouter from "./Component/ProductRouter";
+import ProductRouter from "./component/ProductRouter";
 import CategoryProduct from './page/CategoryProduct '
 import SingleProduct from './page/SingleProduct '
    
