@@ -29,10 +29,12 @@ function App() {
           console.log(response.data);
           const data = response.data;
 
-          setLocation({
-            county: data?.address?.county || "Unkonwn Country",
-            state: data?.address?.state || "Unkonwn State",
-          });
+          alert("Failed to get location: invalid location");
+setLocation({
+  county: data?.address?.county || "Unknown County",
+  state: data?.address?.state || "Unknown State",
+});
+
         } catch (error) {
           alert("Failed to get location");
           console.error("Error Fetching location", error);
