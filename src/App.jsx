@@ -1,3 +1,4 @@
+ 
 import './App.css'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Navbar from './component/Navbar'
@@ -10,13 +11,9 @@ import Products from './pages/Products'
 import Products2 from './pages/Products2'
 import axios from 'axios'
 import Cart from './pages/Cart'
-import ProductRouter from "./component/ProductRouter";
+import ProductRouter from "./Component/ProductRouter";
 import CategoryProduct from './pages/CategoryProduct '
 import SingleProduct from './pages/SingleProduct '
-import Cart from './page/Cart'
-import ProductRouter from "./component/ProductRouter";
-import CategoryProduct from './page/CategoryProduct'
-import SingleProduct from './page/SingleProduct'
    
 function App() {
   const [location, setLocation] = useState(null);
@@ -24,32 +21,29 @@ function App() {
   
 
   const getLocation = () => {
-  navigator.geolocation.getCurrentPosition(
-    async (position) => {
-      const { latitude, longitude } = position.coords;
-      try {
-        const response = await axios.get(
-          `https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`
-        );
-        console.log(response.data);
+    navigator.geolocation.getCurrentPosition(
+      async (postion) => {
+        const { latitude, longitude } = postion.coords;
+        try {
+          const response = await axios.get( ` https://geocode.maps.co/reverse?lat=${latitude}&lon=${longitude}`);
+          console.log(response.data);
+          const data = response.data;
 
-        const data = response.data;
-        setLocation({
-          county: data?.address?.county || "Unknown County",
-          state: data?.address?.state || "Unknown State",
-        });
-      } catch (error) {
-        alert("Failed to get location");
-        console.error("Error fetching location", error);
+          setLocation({
+            county: data?.address?.county || "Unkonwn Country",
+            state: data?.address?.state || "Unkonwn State",
+          });
+        } catch (error) {
+          alert("Failed to get location");
+          console.error("Error Fetching location", error);
+        }
+      },
+      (error) => {
+        alert("Failed to get location unvlid location");
+        console.error("Error Fetching location", error);
       }
-    },
-    (error) => {
-      alert("Failed to get location: invalid location");
-      console.error("Error fetching location", error);
-    }
-  );
-};
-
+    );
+  };
   return (
     <>
     <BrowserRouter>
@@ -73,7 +67,7 @@ function App() {
             path="/cart"
             element={
               <ProductRouter>
-               <Cart location={location} getLocation={getLocation} />
+                <Cart loaction={location} getLocation={getLocation} />
               </ProductRouter>
             }
           ></Route>
